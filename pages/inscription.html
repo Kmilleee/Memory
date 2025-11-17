@@ -14,15 +14,30 @@
     <link rel="stylesheet" href="/css/formulaire.css" />
   </head>
   <header>
-    <nav class="navigation">
-      <a class="nom" href="index.html">Memory</a>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="inscription.html">S'inscire</a></li>
-        <li><a href="connexion.html">Se connecter</a></li>
-        <li><a href="profil.html">Profil</a></li>
-        <li><a href="jouer.html">Jouer</a></li>
-      </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="nom" href="index.html">Memory</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menuBurger"
+          aria-controls="menuBurger"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuBurger">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="inscription.html">S'inscire</a></li>
+            <li><a href="connexion.html">Se connecter</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="jouer.html">Jouer</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -73,6 +88,11 @@
         </div>
       </div>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
   <footer></footer>
 </html>
