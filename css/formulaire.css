@@ -1,0 +1,56 @@
+.bloc-principal {
+  border: solid 1px #ff0aeb;
+  border-radius: 7px;
+  box-shadow: 0px 0px 57px 13px rgba(255, 10, 235, 0.5);
+  padding: 50px;
+  margin-bottom: 100px;
+}
+
+h1,
+p,
+label,
+input.btn,
+div.information {
+  color: white;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 0.8em;
+  margin-bottom: 50px;
+}
+
+div.information {
+  margin-bottom: 10px;
+}
+
+h1,
+p,
+div.information {
+  text-align: center;
+}
+
+input {
+  background-color: white;
+  margin: 10px;
+  height: 40px;
+  width: 80%;
+  border-radius: 50px;
+}
+
+input.btn {
+  background-color: white;
+  color: #111111;
+  border-radius: 50px;
+  margin-bottom: 10%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
