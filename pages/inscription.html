@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mémory - Inscription</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/inscription.css">
 </head>
 <header>
     <nav class="navigation">
+        <a class="nom" href="index.html">Memory</a>
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="inscription.html">S'inscire</a></li>
@@ -20,40 +25,46 @@
 </header>
 
 <body>
-    <section>
-        <h1>Inscription</h1>
-        <p>Créer votre compte</p>
-    </section>
-    <section class="form">
-        <fieldset>
-            <form action="" method="post">
-                <div>
-                    <label for="username">Nom d'utilisateur* :</label>
-                    <input type="text" name="username" id="username" required>
-                </div>
-                <div>
-                    <label for="email">E-mail* :</label>
-                    <input type="email" name="email" id="email" required>
-                </div>
-                <div>
-                    <label for="mdp">Mot de passe* :</label>
-                    <input type="password" name="mdp" id="mdp" required>
-                </div>
-                <div>
-                    <label for="mdpVerif">Confirmez le mot de passe* :</label>
-                    <input type="password" name="mdpVerif" id="mdpVerif" required>
-                </div>
-                <div class="btnForm">
-                    <input type="submit" value="S'inscrire" class="btn">
-                    <input type="reset" value="Annuler" class="btn">
-                </div>
-                <div class="information">
-                    * Champs obligatoire
-                </div>
-            </form>
-        </fieldset>
-        <a href="connexion.html">Déjà inscrit ? Se connecter</a>
-    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
+            <section class="bloc-principal">
+                <h1>Inscription</h1>
+                <p>Créer votre compte</p>
+
+                <section class="form">
+                    <fieldset>
+                        <form action="" method="post">
+                            <div>
+                                <label for="username">Nom d'utilisateur* :</label>
+                                <input type="text" name="username" id="username" required>
+                            </div>
+                            <div>
+                                <label for="email">E-mail* :</label>
+                                <input type="email" name="email" id="email" required>
+                            </div>
+                            <div>
+                                <label for="mdp">Mot de passe* :</label>
+                                <input type="password" name="mdp" id="mdp" required>
+                            </div>
+                            <div>
+                                <label for="mdpVerif">Confirmez le mot de passe* :</label>
+                                <input type="password" name="mdpVerif" id="mdpVerif" required>
+                            </div>
+                            <div class="btnForm">
+                                <input type="submit" value="S'inscrire" class="btn">
+                                <input type="reset" value="Annuler" class="btn">
+                            </div>
+                            <div class="information">
+                                * Champs obligatoire
+                            </div>
+                        </form>
+                    </fieldset>
+                    <a href="connexion.html">Déjà inscrit ? Se connecter</a>
+                </section>
+            </section>
+        </div>
+    </div>
 
 </body>
 <footer>

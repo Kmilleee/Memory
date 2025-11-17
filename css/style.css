@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Questrial";
+  src: url(/fonts/Questrial-Regular.ttf);
+}
+
+body {
+  background-color: #111111;
+}
+
+* {
+  background-color: #111111;
+  font-family: "Questrial";
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: white;
+}
