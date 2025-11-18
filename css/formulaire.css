@@ -26,13 +26,13 @@ input {
   margin: 10px;
   height: 40px;
   width: 80%;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 
 input.btn {
   background-color: white;
   color: #111111;
-  border-radius: 50px;
+  border-radius: 10px;
   margin-bottom: 10%;
 }
 
