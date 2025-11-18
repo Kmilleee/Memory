@@ -1,0 +1,23 @@
+.btn-light {
+  width: 100%;
+  margin-top: 10px;
+}
+
+li,
+h1,
+h2 {
+  margin-bottom: 20px;
+}
+
+h1 {
+  letter-spacing: 3px;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+}

@@ -12,16 +12,27 @@ body {
   font-family: "Questrial";
 }
 
+.bloc-principal {
+  border: solid 1px #ff0aeb;
+  border-radius: 7px;
+  box-shadow: 0px 0px 57px 13px rgba(255, 10, 235, 0.5);
+  padding: 50px;
+  margin-bottom: 100px;
+}
+
+h1,
+p,
+a,
+label,
+ul,
+h2,
+input.btn,
+div.information {
+  color: white;
+}
+
 a {
   text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-}
-
-a {
-  color: white;
 }
 
 .navbar-perso,
