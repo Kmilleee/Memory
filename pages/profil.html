@@ -10,31 +10,29 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/formulaire.css" />
 </head>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-perso">
-        <div class="header container-fluid">
-            <a class="nom" href="index.html">Memory</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuBurger"
-                aria-controls="menuBurger" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuBurger">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="inscription.html">S'inscire</a></li>
-                    <li class="nav-item"><a class="nav-link" href="connexion.html">Se connecter</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profil.html">Profil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="jouer.html">Jouer</a></li>
-                </ul>
-    </nav>
-</header>
 
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-perso">
+            <div class="header container-fluid">
+                <a class="nom" href="index.html">Memory</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuBurger"
+                    aria-controls="menuBurger" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuBurger">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="inscription.html">S'inscire</a></li>
+                        <li class="nav-item"><a class="nav-link" href="connexion.html">Se connecter</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="profil.html">Profil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="jouer.html">Jouer</a></li>
+                    </ul>
+        </nav>
+    </header>
     <div class="container">
-        <div class="row">
-            <!--A partir de larrge (lg) prend que 8 colonnes (évite d'étirer à 100% sur grand écran)
-            et décale de 2 au départ colonnes pour centrer-->
-            <div class="col-12 col-lg-8 offset-lg-2">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-12 col-lg-8">
                 <section class="bloc-principal">
                     <h1>Profil</h1>
                     <div class="infos-profil">

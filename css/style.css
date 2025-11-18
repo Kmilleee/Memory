@@ -19,6 +19,12 @@ body {
   margin-bottom: 100px;
 }
 
+@media screen and (min-width: 1600px) {
+  .bloc-principal {
+    box-shadow: 0px 0px 200px 50px rgba(255, 10, 235, 0.5);
+  }
+}
+
 h1,
 p,
 a,
@@ -34,6 +40,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: rgb(255, 255, 255);
+}
+
 .navbar-perso,
 .header,
 .nom,
@@ -41,6 +51,12 @@ a {
   background-color: transparent;
 }
 
-.nom {
+.active {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+
+.nom,
+h1 {
   letter-spacing: 4px;
 }

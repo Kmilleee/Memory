@@ -10,53 +10,51 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/formulaire.css" />
 </head>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-perso">
-        <div class="header container-fluid">
-            <a class="nom" href="index.html">Memory</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuBurger"
-                aria-controls="menuBurger" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuBurger">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="inscription.html">S'inscire</a></li>
-                    <li class="nav-item"><a class="nav-link" href="connexion.html">Se connecter</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profil.html">Profil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="jouer.html">Jouer</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
 
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-perso">
+            <div class="header container-fluid">
+                <a class="nom" href="index.html">Memory</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuBurger"
+                    aria-controls="menuBurger" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuBurger">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="inscription.html">S'inscire</a></li>
+                        <li class="nav-item"><a class="nav-link" href="connexion.html">Se connecter</a></li>
+                        <li class="nav-item"><a class="nav-link" href="profil.html">Profil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="jouer.html">Jouer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="container">
-        <div class="row">
-            <!--A partir de larrge (lg) prend que 8 colonnes (évite d'étirer à 100% sur grand écran)
-            et décale de 2 au départ colonnes pour centrer-->
-            <div class="col-12 col-lg-8 offset-lg-2">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-12 col-lg-8">
                 <section class="bloc-principal">
                     <h1>Inscription</h1>
                     <p>Créer votre compte</p>
 
                     <section class="text-center form">
                         <fieldset>
-                            <form action="" method="post">
-                                <div class="form-group">
+                            <form method="post">
+                                <div class="form-group d-flex flex-column align-items-center">
                                     <label for="username">Nom d'utilisateur* :</label>
                                     <input type="text" name="username" id="username" required />
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group d-flex flex-column align-items-center">
                                     <label for="email">E-mail* :</label>
                                     <input type="email" name="email" id="email" required />
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group d-flex flex-column align-items-center">
                                     <label for="mdp">Mot de passe* :</label>
                                     <input type="password" name="mdp" id="mdp" required />
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group d-flex flex-column align-items-center">
                                     <label for="mdpVerif">Confirmez le mot de passe* :</label>
                                     <input type="password" name="mdpVerif" id="mdpVerif" required />
                                 </div>
