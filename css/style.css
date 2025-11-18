@@ -41,3 +41,7 @@ a {
 .navbar-toggler-icon {
   background-color: transparent;
 }
+
+.nom {
+  letter-spacing: 4px;
+}

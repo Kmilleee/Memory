@@ -37,8 +37,5 @@ input.btn {
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-bottom: 15px;
 }
