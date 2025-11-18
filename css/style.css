@@ -23,3 +23,10 @@ ul {
 a {
   color: white;
 }
+
+.navbar-perso,
+.header,
+.nom,
+.navbar-toggler-icon {
+  background-color: transparent;
+}
