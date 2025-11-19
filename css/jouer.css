@@ -12,9 +12,12 @@
 }
 
 .front-face {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) rotateX(0deg);
 }
 
+.back-face {
+  transform: rotateY(0deg) rotateX(0deg);
+}
 .memory-card.is-flipped {
-  transform: rotateY(-180deg);
+  transform: rotateY(180deg) rotateX(0deg);
 }
