@@ -13,15 +13,15 @@ const mesImages = [
   "/img/image5.png",
   "/img/image5.png",
 ];
+
 const cartesRetournees = [];
 let bloqueJeu = false;
 
-[...cards].forEach((card) => {
-  card.addEventListener("click", function () {
-    card.classList.toggle("is-flipped");
-    cartesRetournees.push(card);
-  });
-});
+// Gestion des cartes retournées
+function cardClicked() {
+  this.classList.toggle("is-flipped");
+  cartesRetournees.push(this);
+}
 
 // Méthode Fisher-Yates Shuffle (échange)
 function photoAleatoire() {
@@ -37,7 +37,16 @@ function photoAleatoire() {
   // Récupère le tableau déjà mélangé donc distribue à chaque .photo dans l'ordre (élément = destination (.photo) et index = index d'une image dans le tableau)
   memoPhotos.forEach((element, index) => {
     element.innerHTML = '<img src="' + mesImages[index] + '" class="w-100" />';
+    element.parentElement.parentElement.setAttribute(
+      "data-pair",
+      mesImages[index]
+    );
   });
 }
 
 photoAleatoire();
+
+// Execute la fonction cardClicked lorsqu'une card est cliquée
+[...cards].forEach((card) => {
+  card.addEventListener("click", cardClicked);
+});
