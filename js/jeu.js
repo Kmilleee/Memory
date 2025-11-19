@@ -16,11 +16,42 @@ const mesImages = [
 
 const cartesRetournees = [];
 let bloqueJeu = false;
+let paireTrouvee = 0;
 
-// Gestion des cartes retournées
+// Gestion d'événement lors du clic sur une carte (this = carte cliquée) puis appelle la fonction verifierPaire si deux cartes sont retournées
 function cardClicked() {
-  this.classList.toggle("is-flipped");
-  cartesRetournees.push(this);
+  if (this.classList.contains("is-flipped") || bloqueJeu) {
+    return;
+  }
+    this.classList.toggle("is-flipped");
+    cartesRetournees.push(this);
+  if (cartesRetournees.length === 2) {
+    verifierPaire();
+  }
+}
+
+// 
+function verifierPaire() {
+    bloqueJeu = true;
+    const carte1 = cartesRetournees[0].getAttribute("data-pair");
+    const carte2 = cartesRetournees[1].getAttribute("data-pair");
+    if (carte1 === carte2) {
+      cartesRetournees[0].removeEventListener("click", cardClicked);
+      cartesRetournees[1].removeEventListener("click", cardClicked);
+      cartesRetournees.length = 0;
+      bloqueJeu = false;
+      paireTrouvee++;
+      if (paireTrouvee === mesImages.length / 2) {
+        console.log("Victoire !");
+      }
+    } else {
+      setTimeout(() => {
+        cartesRetournees[0].classList.remove("is-flipped");
+        cartesRetournees[1].classList.remove("is-flipped");
+        cartesRetournees.length = 0;
+        bloqueJeu = false;
+      }, 2000);
+  }
 }
 
 // Méthode Fisher-Yates Shuffle (échange)
@@ -46,7 +77,7 @@ function photoAleatoire() {
 
 photoAleatoire();
 
-// Execute la fonction cardClicked lorsqu'une card est cliquée
+// Ajoute l'événement de clic à chaque carte puis appelle la fonction cardClicked
 [...cards].forEach((card) => {
   card.addEventListener("click", cardClicked);
 });
