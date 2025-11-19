@@ -1,0 +1,25 @@
+.cadre {
+  perspective: 1000px;
+}
+
+.memory-card {
+  transition: transform 0.75s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.card-face {
+  backface-visibility: hidden;
+}
+
+.back-face {
+  background-color: red;
+}
+
+.front-face {
+  background-color: blue;
+  transform: rotateY(180deg);
+}
+
+.memory-card.is-flipped {
+  transform: rotateY(-180deg);
+}
