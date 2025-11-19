@@ -13,10 +13,13 @@ const mesImages = [
   "/img/image5.png",
   "/img/image5.png",
 ];
+const cartesRetournees = [];
+let bloqueJeu = false;
 
 [...cards].forEach((card) => {
   card.addEventListener("click", function () {
     card.classList.toggle("is-flipped");
+    cartesRetournees.push(card);
   });
 });
 
