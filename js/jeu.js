@@ -77,7 +77,9 @@ function verifierPaire() {
     paireTrouvee++;
     // Vérifie si toutes les paires ont été trouvées (length du tableau d'images divisé par 2 car chaque image est en double pour former une paire)
     if (paireTrouvee === mesImages.length / 2) {
-      console.log("Victoire !");
+      setTimeout(() => {
+        monModal.show();
+      }, 1000);
     }
     // Sinon on les retourne face cachée après un délai de 2 secondes
   } else {
@@ -121,3 +123,5 @@ melangerCartes();
 [...cards].forEach((card) => {
   card.addEventListener("click", cardClicked);
 });
+
+var monModal = new bootstrap.Modal(document.getElementById("modalVictoire"));
