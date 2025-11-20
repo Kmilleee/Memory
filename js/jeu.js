@@ -1,4 +1,4 @@
-var cards = document.querySelectorAll(".memory-card");
+const cards = document.querySelectorAll(".memory-card");
 document.addEventListener("keydown", relancerPartie);
 
 const mesImages = [
@@ -23,10 +23,9 @@ let nombreCoups = 0;
 
 // Méthode Fisher-Yates Shuffle (échange)
 function melangerCartes() {
-  var i, j, tmp;
-  for (i = mesImages.length - 1; i > 0; i--) {
-    j = Math.floor(Math.random() * (i + 1)); // Index d'une image tirée au hasard (exemple : index 2 = /img/image1.png )
-    tmp = mesImages[i]; // Stocke l'image de l'index du tableau où la boucle était rendue (en partant de la fin vers le début) (exemple index 8 donc image 4)
+  for (let i = mesImages.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1)); // Index d'une image tirée au hasard (exemple : index 2 = /img/image1.png )
+    let tmp = mesImages[i]; // Stocke l'image de l'index du tableau où la boucle était rendue (en partant de la fin vers le début) (exemple index 8 donc image 4)
     mesImages[i] = mesImages[j]; // l'index 8 avait l'image 4 elle prend l'image de l'index tiré aléatoirement (index 2 donc image 1)
     mesImages[j] = tmp; // L'index 2 à échangé son image et récupère sa nouvelle image qui était dans le tmp (image 4)
   }
@@ -35,7 +34,7 @@ function melangerCartes() {
 
 // Récupère le tableau déjà mélangé donc distribue à chaque .photo le tableau dans l'ordre (élément = destination (.photo) et index = index de l'image à insérer)
 function afficherCartes() {
-  var memoPhotos = document.querySelectorAll(".photo");
+  const memoPhotos = document.querySelectorAll(".photo");
   memoPhotos.forEach((element, index) => {
     element.innerHTML =
       '<img src="' +
@@ -129,4 +128,4 @@ melangerCartes();
   card.addEventListener("click", cardClicked);
 });
 
-var monModal = new bootstrap.Modal(document.getElementById("modalVictoire"));
+const monModal = new bootstrap.Modal(document.getElementById("modalVictoire"));

@@ -28,7 +28,7 @@ inputEmail.onkeyup = function () {
 
 // Vérification conditions mot de passe
 inputMdp.onkeyup = function () {
-  var force = 0;
+  let force = 0;
 
   barreForce.classList.remove(
     "w-25",
