@@ -17,6 +17,7 @@ const mesImages = [
 const cartesRetournees = [];
 let bloqueJeu = false;
 let paireTrouvee = 0;
+let nombreCoups = 0;
 
 // Gestion d'événement lors du clic sur une carte (this = carte cliquée) puis appelle la fonction verifierPaire si deux cartes sont retournées
 function cardClicked() {
@@ -25,8 +26,8 @@ function cardClicked() {
     return;
   }
   // Ajoute la classe is-flipped à la carte cliquée pour la retourner (même chose que .add mais toggle est plus adapté ici car indique clairement l'état ON/OFF)
-    this.classList.toggle("is-flipped");
-    cartesRetournees.push(this);
+  this.classList.toggle("is-flipped");
+  cartesRetournees.push(this);
   if (cartesRetournees.length === 2) {
     verifierPaire();
   }
@@ -34,29 +35,32 @@ function cardClicked() {
 
 // Vérifie si les deux cartes retournées forment une paire
 function verifierPaire() {
-    bloqueJeu = true;
-    const carte1 = cartesRetournees[0].getAttribute("data-pair");
-    const carte2 = cartesRetournees[1].getAttribute("data-pair");
-    // Si les deux cartes sont identiques on les laisse retournées et on enlève l'événement de clic dessus
-    if (carte1 === carte2) {
-      cartesRetournees[0].removeEventListener("click", cardClicked);
-      cartesRetournees[1].removeEventListener("click", cardClicked);
-      // Reset du tableau contenant les cartes retournées et débloque le jeu
+  bloqueJeu = true;
+  nombreCoups++;
+  document.getElementById("compteurCoups").innerHTML = nombreCoups;
+  console.log(nombreCoups);
+  const carte1 = cartesRetournees[0].getAttribute("data-pair");
+  const carte2 = cartesRetournees[1].getAttribute("data-pair");
+  // Si les deux cartes sont identiques on les laisse retournées et on enlève l'événement de clic dessus
+  if (carte1 === carte2) {
+    cartesRetournees[0].removeEventListener("click", cardClicked);
+    cartesRetournees[1].removeEventListener("click", cardClicked);
+    // Reset du tableau contenant les cartes retournées et débloque le jeu
+    cartesRetournees.length = 0;
+    bloqueJeu = false;
+    paireTrouvee++;
+    // Vérifie si toutes les paires ont été trouvées (length du tableau d'images divisé par 2 car chaque image est en double pour former une paire)
+    if (paireTrouvee === mesImages.length / 2) {
+      console.log("Victoire !");
+    }
+    // Sinon on les retourne face cachée après un délai de 2 secondes
+  } else {
+    setTimeout(() => {
+      cartesRetournees[0].classList.remove("is-flipped");
+      cartesRetournees[1].classList.remove("is-flipped");
       cartesRetournees.length = 0;
       bloqueJeu = false;
-      paireTrouvee++;
-      // Vérifie si toutes les paires ont été trouvées (length du tableau d'images divisé par 2 car chaque image est en double pour former une paire)
-      if (paireTrouvee === mesImages.length / 2) {
-        console.log("Victoire !");
-      }
-      // Sinon on les retourne face cachée après un délai de 2 secondes
-    } else {
-      setTimeout(() => {
-        cartesRetournees[0].classList.remove("is-flipped");
-        cartesRetournees[1].classList.remove("is-flipped");
-        cartesRetournees.length = 0;
-        bloqueJeu = false;
-      }, 2000);
+    }, 2000);
   }
 }
 
@@ -74,11 +78,11 @@ function melangerCartes() {
 
 // Récupère le tableau déjà mélangé donc distribue à chaque .photo le tableau dans l'ordre (élément = destination (.photo) et index = index de l'image à insérer)
 function afficherCartes() {
-  var memoPhotos = document.querySelectorAll(".photo"); 
-  memoPhotos.forEach((element, index) => { 
-    element.innerHTML = '<img src="' + mesImages[index] + '" class="w-100" />'; 
+  var memoPhotos = document.querySelectorAll(".photo");
+  memoPhotos.forEach((element, index) => {
+    element.innerHTML = '<img src="' + mesImages[index] + '" class="w-100" />';
     // Ajoute un attribut data-pair à chaque carte pour vérifier les paires via l'index (nom de l'image)
-    element.parentElement.parentElement.setAttribute( 
+    element.parentElement.parentElement.setAttribute(
       "data-pair",
       mesImages[index]
     );
