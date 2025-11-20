@@ -8,6 +8,10 @@ let barreForce = document.getElementById("barre-force");
 let texteForce = document.getElementById("texte-force");
 let barreContainer = document.getElementById("indicateur-force");
 
+let erreurUsername = document.getElementById("erreur-username");
+let erreurEmail = document.getElementById("erreur-email");
+let erreurMdpVerif = document.getElementById("erreur-mdpVerif");
+
 // Annule l'événement "submit" du form pour bloquer la requête POST/GET et permettre au JS de gérer la suite
 let btnSubmit = document.getElementById("submit-btn");
 btnSubmit.addEventListener("click", (event) => {
@@ -19,9 +23,7 @@ btnSubmit.addEventListener("click", (event) => {
 // Vérification format nom d'utilisateur
 inputUsername.onkeyup = function () {
   if (inputUsername.value.length < 3) {
-    console.log("Nom d'utilisateur invalide");
-  } else {
-    console.log("Nom d'utilisateur valide");
+    erreurUsername.textContent = "Nom d'utilisateur invalide"
   }
 }
 
@@ -29,9 +31,9 @@ inputUsername.onkeyup = function () {
 inputEmail.onkeyup = function () {
   let validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (inputEmail.value.match(validEmail)) {
-    console.log("Email valide");
+    erreurEmail.textContent = ""
   } else {
-    console.log("Email invalide");
+    erreurEmail.textContent = "Email invalide"
   }
 };
 
@@ -91,9 +93,9 @@ inputMdp.onkeyup = function () {
 // Vérification correspondance mot de passe 
 inputVerifMdp.onkeyup = function () {
   if (inputMdp.value === inputVerifMdp.value) {
-    console.log("Mot de passe valide");
+    erreurMdpVerif.textContent = ""
   } else {
-    console.log("Mot de passe invalide");
+    erreurMdpVerif.textContent = "Mot de passe invalide"
   }
 }
 
