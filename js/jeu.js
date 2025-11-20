@@ -46,7 +46,7 @@ function afficherCartes() {
     // Ajoute un attribut data-pair à chaque carte pour vérifier les paires via l'index (nom de l'image)
     element.parentElement.parentElement.setAttribute(
       "data-pair",
-      mesImages[index]
+      mesImages[index].path
     );
   });
 }
