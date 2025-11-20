@@ -16,6 +16,15 @@ btnSubmit.addEventListener("click", (event) => {
 
 /***************** REGEX ***********************/
 
+// Vérification format nom d'utilisateur
+inputUsername.onkeyup = function () {
+  if (inputUsername.value.length < 3) {
+    console.log("Nom d'utilisateur invalide");
+  } else {
+    console.log("Nom d'utilisateur valide");
+  }
+}
+
 // Vérification format Email
 inputEmail.onkeyup = function () {
   let validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -42,7 +51,6 @@ inputMdp.onkeyup = function () {
 
   let lettreMinuscule = /(?=.*[a-z])/;
   if (inputMdp.value.match(lettreMinuscule)) {
-    console.log("minuscule ok");
     force++;
   }
 
@@ -79,6 +87,15 @@ inputMdp.onkeyup = function () {
       break;
   }
 };
+
+// Vérification correspondance mot de passe 
+inputVerifMdp.onkeyup = function () {
+  if (inputMdp.value === inputVerifMdp.value) {
+    console.log("Mot de passe valide");
+  } else {
+    console.log("Mot de passe invalide");
+  }
+}
 
 /********************************************* */
 
