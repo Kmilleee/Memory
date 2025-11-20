@@ -2,18 +2,18 @@ const cards = document.querySelectorAll(".memory-card");
 document.addEventListener("keydown", relancerPartie);
 
 const mesImages = [
-  { path: "/img/image0.png", alt: "Image d'un valet" },
-  { path: "/img/image0.png", alt: "Image d'un valet" },
-  { path: "/img/image1.png", alt: "Image d'un chevalier" },
-  { path: "/img/image1.png", alt: "Image d'un chevalier" },
-  { path: "/img/image2.png", alt: "Image d'une dame" },
-  { path: "/img/image2.png", alt: "Image d'une dame" },
-  { path: "/img/image3.png", alt: "Image d'un mage" },
-  { path: "/img/image3.png", alt: "Image d'un mage" },
-  { path: "/img/image4.png", alt: "Image d'un joker" },
-  { path: "/img/image4.png", alt: "Image d'un joker" },
-  { path: "/img/image5.png", alt: "Image d'un roi" },
-  { path: "/img/image5.png", alt: "Image d'un roi" },
+  { path: "/img/image0.webp", alt: "Image d'un valet" },
+  { path: "/img/image0.webp", alt: "Image d'un valet" },
+  { path: "/img/image1.webp", alt: "Image d'un chevalier" },
+  { path: "/img/image1.webp", alt: "Image d'un chevalier" },
+  { path: "/img/image2.webp", alt: "Image d'une dame" },
+  { path: "/img/image2.webp", alt: "Image d'une dame" },
+  { path: "/img/image3.webp", alt: "Image d'un mage" },
+  { path: "/img/image3.webp", alt: "Image d'un mage" },
+  { path: "/img/image4.webp", alt: "Image d'un joker" },
+  { path: "/img/image4.webp", alt: "Image d'un joker" },
+  { path: "/img/image5.webp", alt: "Image d'un roi" },
+  { path: "/img/image5.webp", alt: "Image d'un roi" },
 ];
 
 const cartesRetournees = [];
@@ -24,7 +24,7 @@ let nombreCoups = 0;
 // Méthode Fisher-Yates Shuffle (échange)
 function melangerCartes() {
   for (let i = mesImages.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1)); // Index d'une image tirée au hasard (exemple : index 2 = /img/image1.png )
+    let j = Math.floor(Math.random() * (i + 1)); // Index d'une image tirée au hasard (exemple : index 2 = /img/image1.webp )
     let tmp = mesImages[i]; // Stocke l'image de l'index du tableau où la boucle était rendue (en partant de la fin vers le début) (exemple index 8 donc image 4)
     mesImages[i] = mesImages[j]; // l'index 8 avait l'image 4 elle prend l'image de l'index tiré aléatoirement (index 2 donc image 1)
     mesImages[j] = tmp; // L'index 2 à échangé son image et récupère sa nouvelle image qui était dans le tmp (image 4)

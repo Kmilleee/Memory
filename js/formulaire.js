@@ -23,6 +23,7 @@ const validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 let erreurUsername = document.getElementById("erreur-username");
 let erreurEmail = document.getElementById("erreur-email");
 let erreurMdpVerif = document.getElementById("erreur-mdpVerif");
+let infoMdp = document.getElementById("info-mdp");
 
 // Annule l'événement "submit" du form pour bloquer la requête POST/GET et permettre au JS de gérer la suite
 let btnSubmit = document.getElementById("submit-btn");
@@ -105,6 +106,14 @@ inputMdp.onkeyup = function () {
       texteForce.textContent = "Fort";
       break;
   }
+
+  // Gestion de l'affichage du message d'aide du mot de passe
+  if (inputMdp.value.length >= 6 && inputMdp.value.match(special) && inputMdp.value.match(chiffreValide) && inputMdp.value.match(lettre)) {
+    infoMdp.classList.add("d-none");
+  } else {
+    infoMdp.classList.remove("d-none");
+  }
+
   verificationFormulaire();
 };
 
@@ -125,4 +134,5 @@ function verificationFormulaire() {
 // Fonction pour afficher le niveau de force du mot de passe (supprime la classe d-none lorsqu'on clique sur le champ mdp)
 function affichageForce() {
   barreContainer.classList.remove("d-none");
+  infoMdp.classList.remove("d-none");
 }
