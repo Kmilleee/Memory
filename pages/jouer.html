@@ -175,18 +175,15 @@
     </div>
     <div class="modal fade" id="modalVictoire" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Victoire</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content text-center bg-dark text-light p-5">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="modal-body">
-                    <p>corps du modal</p>
+                    <h2 class="fw-bold fs-1">Victoire !</h2>
+                    <p class="fs-5">Vous avez gagné en <span id="coupsVictoire" class="fw-bold">0</span> coups.</p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Rejouer</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-violet text-light w-50">Rejouer</button>
                 </div>
             </div>
         </div>

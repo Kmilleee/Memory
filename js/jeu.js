@@ -82,6 +82,7 @@ function verifierPaire() {
     // Vérifie si toutes les paires ont été trouvées (length du tableau d'images divisé par 2 car chaque image est en double pour former une paire)
     if (paireTrouvee === mesImages.length / 2) {
       setTimeout(() => {
+        document.getElementById("coupsVictoire").innerHTML = nombreCoups;
         monModal.show();
       }, 1000);
     }

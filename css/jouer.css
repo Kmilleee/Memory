@@ -21,3 +21,24 @@
 .memory-card.is-flipped {
   transform: rotateY(180deg) rotateX(0deg);
 }
+
+.btn-violet {
+    background-color: #ff0aeb;
+    border-color: #ff0aeb;
+}
+
+.btn-violet:hover {
+    background-color: #ff35ee;
+    border-color: #ff35ee;
+}
+
+#modalVictoire {
+  background-color: rgba(33, 37, 41, 0.555) !important; 
+    backdrop-filter: blur(4px);
+}
+
+
+#modalVictoire .modal-content {
+    background-color: rgba(33, 37, 41, 0.925) !important; 
+}
+
