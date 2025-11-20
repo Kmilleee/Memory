@@ -2,18 +2,18 @@ var cards = document.querySelectorAll(".memory-card");
 document.addEventListener("keydown", relancerPartie);
 
 const mesImages = [
-  "/img/image0.png",
-  "/img/image0.png",
-  "/img/image1.png",
-  "/img/image1.png",
-  "/img/image2.png",
-  "/img/image2.png",
-  "/img/image3.png",
-  "/img/image3.png",
-  "/img/image4.png",
-  "/img/image4.png",
-  "/img/image5.png",
-  "/img/image5.png",
+  { path: "/img/image0.png", alt: "Image d'un valet" },
+  { path: "/img/image0.png", alt: "Image d'un valet" },
+  { path: "/img/image1.png", alt: "Image d'un chevalier" },
+  { path: "/img/image1.png", alt: "Image d'un chevalier" },
+  { path: "/img/image2.png", alt: "Image d'une dame" },
+  { path: "/img/image2.png", alt: "Image d'une dame" },
+  { path: "/img/image3.png", alt: "Image d'un mage" },
+  { path: "/img/image3.png", alt: "Image d'un mage" },
+  { path: "/img/image4.png", alt: "Image d'un joker" },
+  { path: "/img/image4.png", alt: "Image d'un joker" },
+  { path: "/img/image5.png", alt: "Image d'un roi" },
+  { path: "/img/image5.png", alt: "Image d'un roi" },
 ];
 
 const cartesRetournees = [];
@@ -37,7 +37,12 @@ function melangerCartes() {
 function afficherCartes() {
   var memoPhotos = document.querySelectorAll(".photo");
   memoPhotos.forEach((element, index) => {
-    element.innerHTML = '<img src="' + mesImages[index] + '" class="w-100" />';
+    element.innerHTML =
+      '<img src="' +
+      mesImages[index].path +
+      '"alt="' +
+      mesImages[index].alt +
+      '" class="w-100" />';
     // Ajoute un attribut data-pair à chaque carte pour vérifier les paires via l'index (nom de l'image)
     element.parentElement.parentElement.setAttribute(
       "data-pair",
