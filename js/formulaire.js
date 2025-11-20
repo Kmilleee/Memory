@@ -1,20 +1,25 @@
+/***************** DECLARATION DES VARIABLES GLOBALES ***********************/
+
+// Variables pour récupération les différents inputs du formulaire
 let inputUsername = document.getElementById("username");
 let inputEmail = document.getElementById("email");
 let inputMdp = document.getElementById("mdp");
 let inputVerifMdp = document.getElementById("mdpVerif");
 inputMdp.addEventListener("click", affichageForce);
 
+// Variables pour affichage de la force du mot de passe
 let barreForce = document.getElementById("barre-force");
 let texteForce = document.getElementById("texte-force");
 let barreContainer = document.getElementById("indicateur-force");
 
-
+// Déclaration des Regex
 const lettre = /[a-zA-Z]/;
 const chiffreValide = /(?=.*\d)/;
 const nbValide = /(?=.*.{6,})/;
 const special = /(?=.*[!@#$%^&*()_+\-=[\]{};':",.<>/?])/
 const validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
+// Variables pour la récupération des différents messages d'erreur
 let erreurUsername = document.getElementById("erreur-username");
 let erreurEmail = document.getElementById("erreur-email");
 let erreurMdpVerif = document.getElementById("erreur-mdpVerif");
@@ -25,7 +30,7 @@ btnSubmit.addEventListener("click", (event) => {
   event.preventDefault();
 });
 
-/***************** REGEX ***********************/
+/***************** VERIFICATION DES CHAMPS ***********************/
 
 // Vérification format nom d'utilisateur
 inputUsername.onkeyup = function () {
@@ -47,7 +52,19 @@ inputEmail.onkeyup = function () {
   verificationFormulaire();
 };
 
-// Vérification conditions mot de passe
+// Vérification correspondance mot de passe 
+inputVerifMdp.onkeyup = function () {
+  if (inputMdp.value === inputVerifMdp.value) {
+    erreurMdpVerif.textContent = ""
+  } else {
+    erreurMdpVerif.textContent = "Mot de passe invalide"
+  }
+  verificationFormulaire();
+}
+
+/********************************************* */
+
+// Gestion de la force du mot de passe
 inputMdp.onkeyup = function () {
   let force = 0;
 
@@ -76,34 +93,22 @@ inputMdp.onkeyup = function () {
 
   switch (force) {
     case 1:
-      barreForce.classList.add("w-33", "bg-danger");
+      barreForce.classList.add("w-25", "bg-danger");
       texteForce.textContent = "Faible";
       break;
     case 2:
-      barreForce.classList.add("w-33", "bg-warning");
+      barreForce.classList.add("w-50", "bg-warning");
       texteForce.textContent = "Moyen";
       break;
     case 3:
-      barreForce.classList.add("w-33", "bg-success");
+      barreForce.classList.add("w-100", "bg-success");
       texteForce.textContent = "Fort";
       break;
   }
   verificationFormulaire();
 };
 
-// Vérification correspondance mot de passe 
-inputVerifMdp.onkeyup = function () {
-  if (inputMdp.value === inputVerifMdp.value) {
-    erreurMdpVerif.textContent = ""
-  } else {
-    erreurMdpVerif.textContent = "Mot de passe invalide"
-  }
-  verificationFormulaire();
-}
-
-/********************************************* */
-
-
+// Fonction de vérification du formulaire global pour activer/desactiver le bouton submit
 function verificationFormulaire() {
   let usernameOk = inputUsername.value.length >= 3;
   let emailOk = inputEmail.value.match(validEmail);
@@ -117,6 +122,7 @@ function verificationFormulaire() {
   }
 }
 
+// Fonction pour afficher le niveau de force du mot de passe (supprime la classe d-none lorsqu'on clique sur le champ mdp)
 function affichageForce() {
   barreContainer.classList.remove("d-none");
 }
