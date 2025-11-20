@@ -21,51 +21,6 @@ let bloqueJeu = false;
 let paireTrouvee = 0;
 let nombreCoups = 0;
 
-// Gestion d'événement lors du clic sur une carte (this = carte cliquée) puis appelle la fonction verifierPaire si deux cartes sont retournées
-function cardClicked() {
-  // Empêche de retourner une carte déjà retournée ou si le jeu est bloqué (entre le moment où deux cartes sont retournées et la vérification de la paire)
-  if (this.classList.contains("is-flipped") || bloqueJeu) {
-    return;
-  }
-  // Ajoute la classe is-flipped à la carte cliquée pour la retourner (même chose que .add mais toggle est plus adapté ici car indique clairement l'état ON/OFF)
-  this.classList.toggle("is-flipped");
-  cartesRetournees.push(this);
-  if (cartesRetournees.length === 2) {
-    verifierPaire();
-  }
-}
-
-// Vérifie si les deux cartes retournées forment une paire
-function verifierPaire() {
-  bloqueJeu = true;
-  nombreCoups++;
-  document.getElementById("compteurCoups").innerHTML = nombreCoups;
-  console.log(nombreCoups);
-  const carte1 = cartesRetournees[0].getAttribute("data-pair");
-  const carte2 = cartesRetournees[1].getAttribute("data-pair");
-  // Si les deux cartes sont identiques on les laisse retournées et on enlève l'événement de clic dessus
-  if (carte1 === carte2) {
-    cartesRetournees[0].removeEventListener("click", cardClicked);
-    cartesRetournees[1].removeEventListener("click", cardClicked);
-    // Reset du tableau contenant les cartes retournées et débloque le jeu
-    cartesRetournees.length = 0;
-    bloqueJeu = false;
-    paireTrouvee++;
-    // Vérifie si toutes les paires ont été trouvées (length du tableau d'images divisé par 2 car chaque image est en double pour former une paire)
-    if (paireTrouvee === mesImages.length / 2) {
-      console.log("Victoire !");
-    }
-    // Sinon on les retourne face cachée après un délai de 2 secondes
-  } else {
-    setTimeout(() => {
-      cartesRetournees[0].classList.remove("is-flipped");
-      cartesRetournees[1].classList.remove("is-flipped");
-      cartesRetournees.length = 0;
-      bloqueJeu = false;
-    }, 2000);
-  }
-}
-
 // Méthode Fisher-Yates Shuffle (échange)
 function melangerCartes() {
   var i, j, tmp;
@@ -91,21 +46,70 @@ function afficherCartes() {
   });
 }
 
+// Gestion d'événement lors du clic sur une carte (this = carte cliquée) puis appelle la fonction verifierPaire si deux cartes sont retournées
+function cardClicked() {
+  // Empêche de retourner une carte déjà retournée ou si le jeu est bloqué (entre le moment où deux cartes sont retournées et la vérification de la paire)
+  if (this.classList.contains("is-flipped") || bloqueJeu) {
+    return;
+  }
+  // Ajoute la classe is-flipped à la carte cliquée pour la retourner (même chose que .add mais toggle est plus adapté ici car indique clairement l'état ON/OFF)
+  this.classList.toggle("is-flipped");
+  cartesRetournees.push(this);
+  if (cartesRetournees.length === 2) {
+    verifierPaire();
+  }
+}
+
+// Vérifie si les deux cartes retournées forment une paire
+function verifierPaire() {
+  bloqueJeu = true;
+  nombreCoups++;
+  document.getElementById("compteurCoups").innerHTML = nombreCoups;
+  const carte1 = cartesRetournees[0].getAttribute("data-pair");
+  const carte2 = cartesRetournees[1].getAttribute("data-pair");
+  // Si les deux cartes sont identiques on les laisse retournées et on enlève l'événement de clic dessus
+  if (carte1 === carte2) {
+    cartesRetournees[0].removeEventListener("click", cardClicked);
+    cartesRetournees[1].removeEventListener("click", cardClicked);
+    // Reset du tableau contenant les cartes retournées et débloque le jeu
+    cartesRetournees.length = 0;
+    bloqueJeu = false;
+    paireTrouvee++;
+    // Vérifie si toutes les paires ont été trouvées (length du tableau d'images divisé par 2 car chaque image est en double pour former une paire)
+    if (paireTrouvee === mesImages.length / 2) {
+      console.log("Victoire !");
+    }
+    // Sinon on les retourne face cachée après un délai de 2 secondes
+  } else {
+    setTimeout(() => {
+      cartesRetournees[0].classList.remove("is-flipped");
+      cartesRetournees[1].classList.remove("is-flipped");
+      cartesRetournees.length = 0;
+      bloqueJeu = false;
+    }, 2000);
+  }
+}
+
 function relancerPartie(event) {
   if (event.code === "Space") {
+    // Désactive le scroll de page avec espace
+    event.preventDefault();
+    // Reset toutes les variables / constantes à 0
     cartesRetournees.length = 0;
     bloqueJeu = false;
     paireTrouvee = 0;
     nombreCoups = 0;
-
     document.getElementById("compteurCoups").textContent = nombreCoups;
 
+    // Enlève le retournement sur chaque cartes + on réactive le click
     [...cards].forEach((card) => {
       card.classList.remove("is-flipped");
       card.addEventListener("click", cardClicked);
     });
-
-    melangerCartes();
+    // Mélange les cartes à la fin de l'animation du retournement de cartes (définit à 0.75s) pour ne pas voir les nouvelles images attribuées face visible
+    setTimeout(() => {
+      melangerCartes();
+    }, 800);
   } else {
     return;
   }
