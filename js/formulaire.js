@@ -24,6 +24,8 @@ btnSubmit.addEventListener("click", (event) => {
 inputUsername.onkeyup = function () {
   if (inputUsername.value.length < 3) {
     erreurUsername.textContent = "Nom d'utilisateur invalide"
+  } else {
+    erreurUsername.textContent = ""
   }
 }
 
