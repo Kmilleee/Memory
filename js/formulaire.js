@@ -8,6 +8,13 @@ let barreForce = document.getElementById("barre-force");
 let texteForce = document.getElementById("texte-force");
 let barreContainer = document.getElementById("indicateur-force");
 
+
+const lettre = /[a-zA-Z]/;
+const chiffreValide = /(?=.*\d)/;
+const nbValide = /(?=.*.{6,})/;
+const special = /(?=.*[!@#$%^&*()_+\-=[\]{};':",.<>/?])/
+const validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 let erreurUsername = document.getElementById("erreur-username");
 let erreurEmail = document.getElementById("erreur-email");
 let erreurMdpVerif = document.getElementById("erreur-mdpVerif");
@@ -27,16 +34,17 @@ inputUsername.onkeyup = function () {
   } else {
     erreurUsername.textContent = ""
   }
+  verificationFormulaire();
 }
 
 // Vérification format Email
 inputEmail.onkeyup = function () {
-  let validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (inputEmail.value.match(validEmail)) {
     erreurEmail.textContent = ""
   } else {
     erreurEmail.textContent = "Email invalide"
   }
+  verificationFormulaire();
 };
 
 // Vérification conditions mot de passe
@@ -53,43 +61,34 @@ inputMdp.onkeyup = function () {
     "bg-success"
   );
 
-  let lettreMinuscule = /(?=.*[a-z])/;
-  if (inputMdp.value.match(lettreMinuscule)) {
-    force++;
+  if(inputMdp.value.length <= 6) {
+    force = 1;
+  } 
+
+  if (inputMdp.value.length > 6 && (inputMdp.value.match(special) || inputMdp.value.match(chiffreValide))) {
+    force = 2;
   }
 
-  let lettreMajuscule = /(?=.*[A-Z])/;
-  if (inputMdp.value.match(lettreMajuscule)) {
-    force++;
+  if (inputMdp.value.length > 9 && inputMdp.value.match(special) && inputMdp.value.match(chiffreValide)) {
+    force = 3;
   }
 
-  let chiffreValide = /(?=.*\d)/;
-  if (inputMdp.value.match(chiffreValide)) {
-    force++;
-  }
-  let nbValide = /(?=.*.{6,})/;
-  if (inputMdp.value.match(nbValide)) {
-    force++;
-  }
 
   switch (force) {
     case 1:
-      barreForce.classList.add("w-25", "bg-danger");
+      barreForce.classList.add("w-33", "bg-danger");
       texteForce.textContent = "Faible";
       break;
     case 2:
-      barreForce.classList.add("w-50", "bg-warning");
+      barreForce.classList.add("w-33", "bg-warning");
       texteForce.textContent = "Moyen";
       break;
     case 3:
-      barreForce.classList.add("w-75", "bg-primary");
-      texteForce.textContent = "Bon";
-      break;
-    case 4:
-      barreForce.classList.add("w-100", "bg-success");
+      barreForce.classList.add("w-33", "bg-success");
       texteForce.textContent = "Fort";
       break;
   }
+  verificationFormulaire();
 };
 
 // Vérification correspondance mot de passe 
@@ -99,9 +98,24 @@ inputVerifMdp.onkeyup = function () {
   } else {
     erreurMdpVerif.textContent = "Mot de passe invalide"
   }
+  verificationFormulaire();
 }
 
 /********************************************* */
+
+
+function verificationFormulaire() {
+  let usernameOk = inputUsername.value.length >= 3;
+  let emailOk = inputEmail.value.match(validEmail);
+  let mdpOk = inputMdp.value.length >= 6 && inputMdp.value.match(special) && inputMdp.value.match(chiffreValide) && inputMdp.value.match(lettre);
+  let mdpVerifOk = inputMdp.value === inputVerifMdp.value;
+
+  if (usernameOk && emailOk && mdpOk && mdpVerifOk) {
+    btnSubmit.disabled = false;
+  } else {
+    btnSubmit.disabled = true;
+  }
+}
 
 function affichageForce() {
   barreContainer.classList.remove("d-none");

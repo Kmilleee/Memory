@@ -55,6 +55,7 @@
                                 <div class="form-group d-flex flex-column align-items-center">
                                     <label for="mdp">Mot de passe* :</label>
                                     <input type="password" name="mdp" id="mdp" required />
+                                    <div class="text-warning">Le mot de passe doit contenir au moins 6 caractères, une lettre, un chiffre et un caractère spécial</div>
                                     <div id="indicateur-force" class="d-none">
                                         <div id="barre-force"></div> <span id="texte-force" class="text-white"></span>
                                     </div>
@@ -65,7 +66,7 @@
                                     <span id="erreur-mdpVerif" class="text-danger"></span>
                                 </div>
                                 <div class="d-flex btnForm">
-                                    <input type="submit" value="S'inscrire" class="btn" id="submit-btn" />
+                                    <input type="submit" value="S'inscrire" class="btn" id="submit-btn" disabled/>
                                     <input type="reset" value="Annuler" class="btn" />
                                 </div>
                                 <div class="information">* Champs obligatoire</div>
