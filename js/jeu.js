@@ -99,6 +99,7 @@ function verifierPaire() {
 
 function relancerPartie(event) {
   if (event.code === "Space") {
+    monModal.hide();
     // Désactive le scroll de page avec espace
     event.preventDefault();
     // Reset toutes les variables / constantes à 0

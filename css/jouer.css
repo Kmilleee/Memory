@@ -22,14 +22,8 @@
   transform: rotateY(180deg) rotateX(0deg);
 }
 
-.btn-violet {
-    background-color: #ff0aeb;
-    border-color: #ff0aeb;
-}
-
-.btn-violet:hover {
-    background-color: #ff35ee;
-    border-color: #ff35ee;
+.text-violet {
+    color: #ff0aeb;
 }
 
 #modalVictoire {
