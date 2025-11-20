@@ -1,4 +1,6 @@
 var cards = document.querySelectorAll(".memory-card");
+document.addEventListener("keydown", relancerPartie);
+
 const mesImages = [
   "/img/image0.png",
   "/img/image0.png",
@@ -87,6 +89,26 @@ function afficherCartes() {
       mesImages[index]
     );
   });
+}
+
+function relancerPartie(event) {
+  if (event.code === "Space") {
+    cartesRetournees.length = 0;
+    bloqueJeu = false;
+    paireTrouvee = 0;
+    nombreCoups = 0;
+
+    document.getElementById("compteurCoups").textContent = nombreCoups;
+
+    [...cards].forEach((card) => {
+      card.classList.remove("is-flipped");
+      card.addEventListener("click", cardClicked);
+    });
+
+    melangerCartes();
+  } else {
+    return;
+  }
 }
 
 melangerCartes();
