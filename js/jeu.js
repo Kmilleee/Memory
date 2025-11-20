@@ -82,8 +82,8 @@ function verifierPaire() {
     // Sinon on les retourne face cachée après un délai de 2 secondes
   } else {
     setTimeout(() => {
-      cartesRetournees[0].classList.remove("is-flipped");
-      cartesRetournees[1].classList.remove("is-flipped");
+      cartesRetournees[0].classList.toggle("is-flipped");
+      cartesRetournees[1].classList.toggle("is-flipped");
       cartesRetournees.length = 0;
       bloqueJeu = false;
     }, 2000);
