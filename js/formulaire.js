@@ -35,7 +35,7 @@ btnSubmit.addEventListener("click", (event) => {
 // Vérification format nom d'utilisateur
 inputUsername.onkeyup = function () {
   if (inputUsername.value.length < 3) {
-    erreurUsername.textContent = "Nom d'utilisateur invalide"
+    erreurUsername.textContent = "Nom d'utilisateur invalide (minimum 3 caractères)"
   } else {
     erreurUsername.textContent = ""
   }
@@ -47,7 +47,7 @@ inputEmail.onkeyup = function () {
   if (inputEmail.value.match(validEmail)) {
     erreurEmail.textContent = ""
   } else {
-    erreurEmail.textContent = "Email invalide"
+    erreurEmail.textContent = "Email invalide (ex: nom@domaine.com)"
   }
   verificationFormulaire();
 };
@@ -57,7 +57,7 @@ inputVerifMdp.onkeyup = function () {
   if (inputMdp.value === inputVerifMdp.value) {
     erreurMdpVerif.textContent = ""
   } else {
-    erreurMdpVerif.textContent = "Mot de passe invalide"
+    erreurMdpVerif.textContent = "Mot de passe invalide ( les deux mot de passe doivent être identiques)"
   }
   verificationFormulaire();
 }

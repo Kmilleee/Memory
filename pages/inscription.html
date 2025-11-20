@@ -44,17 +44,17 @@
                             <form method="post">
                                 <div class="form-group d-flex flex-column align-items-center">
                                     <label for="username">Nom d'utilisateur* :</label>
-                                    <input type="text" name="username" id="username" required />
+                                    <input type="text" name="username" id="username" placeholder="Ex: Username14" required class="p-3"/>
                                     <span id="erreur-username" class="text-danger"></span>
                                 </div>
                                 <div class="form-group d-flex flex-column align-items-center">
                                     <label for="email">E-mail* :</label>
-                                    <input type="email" name="email" id="email" required />
+                                    <input type="email" name="email" id="email" placeholder="Ex: nom@domaine.com" required class="p-3"/>
                                     <span id="erreur-email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group d-flex flex-column align-items-center">
                                     <label for="mdp">Mot de passe* :</label>
-                                    <input type="password" name="mdp" id="mdp" required />
+                                    <input type="password" name="mdp" id="mdp" placeholder="********" required class="p-3"/>
                                     <div class="text-warning">Le mot de passe doit contenir au moins 6 caractères, une lettre, un chiffre et un caractère spécial</div>
                                     <div id="indicateur-force" class="d-none">
                                         <div id="barre-force"></div> <span id="texte-force" class="text-white"></span>
