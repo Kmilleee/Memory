@@ -23,7 +23,8 @@
                 <div class="collapse navbar-collapse" id="menuBurger">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="../index.html">Accueil</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="/pages/inscription.html">S'inscire</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="/pages/inscription.html">S'inscire</a>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="/pages/connexion.html">Se connecter</a></li>
                         <li class="nav-item"><a class="nav-link" href="/pages/profil.html">Profil</a></li>
                         <li class="nav-item"><a class="nav-link" href="/pages/jouer.html">Jouer</a></li>
@@ -44,18 +45,25 @@
                             <form method="post">
                                 <div class="form-group d-flex flex-column align-items-center">
                                     <label for="username">Nom d'utilisateur* :</label>
-                                    <input type="text" name="username" id="username" placeholder="Ex: Username14" required class="p-3"/>
+                                    <input type="text" name="username" id="username" placeholder="Ex: Username14"
+                                        required class="p-3" />
                                     <span id="erreur-username" class="text-danger"></span>
                                 </div>
                                 <div class="form-group d-flex flex-column align-items-center">
                                     <label for="email">E-mail* :</label>
-                                    <input type="email" name="email" id="email" placeholder="Ex: nom@domaine.com" required class="p-3"/>
+                                    <input type="email" name="email" id="email" placeholder="Ex: nom@domaine.com"
+                                        required class="p-3" />
                                     <span id="erreur-email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group d-flex flex-column align-items-center">
                                     <label for="mdp">Mot de passe* :</label>
-                                    <input type="password" name="mdp" id="mdp" placeholder="********" required class="p-3"/>
-                                    <div id="info-mdp" class="text-warning d-none">Le mot de passe doit contenir au moins 6 caractères, une lettre, un chiffre et un caractère spécial</div>
+                                    <input type="password" name="mdp" id="mdp" placeholder="********" required
+                                        class="p-3" />
+                                    <button type="button" id="btn-visibilite-password" class="bg-transparent border-0">
+                                        <img src="/img/oeil-ferme.svg" alt="Icone oeil fermé" id="oeil">
+                                    </button>
+                                    <div id="info-mdp" class="text-warning d-none">Le mot de passe doit contenir au
+                                        moins 6 caractères, une lettre, un chiffre et un caractère spécial</div>
                                     <div id="indicateur-force" class="d-none">
                                         <div id="barre-force"></div> <span id="texte-force" class="text-white"></span>
                                     </div>
@@ -66,7 +74,7 @@
                                     <span id="erreur-mdpVerif" class="text-danger"></span>
                                 </div>
                                 <div class="d-flex btnForm">
-                                    <input type="submit" value="S'inscrire" class="btn" id="submit-btn" disabled/>
+                                    <input type="submit" value="S'inscrire" class="btn" id="submit-btn" disabled />
                                     <input type="reset" value="Annuler" class="btn" />
                                 </div>
                                 <div class="information">* Champs obligatoire</div>

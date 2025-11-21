@@ -5,6 +5,10 @@ let inputUsername = document.getElementById("username");
 let inputEmail = document.getElementById("email");
 let inputMdp = document.getElementById("mdp");
 let inputVerifMdp = document.getElementById("mdpVerif");
+let imageOeil = document.getElementById("oeil");
+document
+  .getElementById("btn-visibilite-password")
+  .addEventListener("click", afficheMdp);
 inputMdp.addEventListener("click", affichageForce);
 
 // Variables pour affichage de la force du mot de passe
@@ -16,7 +20,7 @@ let barreContainer = document.getElementById("indicateur-force");
 const lettre = /[a-zA-Z]/;
 const chiffreValide = /(?=.*\d)/;
 const nbValide = /(?=.*.{6,})/;
-const special = /(?=.*[!@#$%^&*()_+\-=[\]{};':",.<>/?])/
+const special = /(?=.*[!@#$%^&*()_+\-=[\]{};':",.<>/?])/;
 const validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 // Variables pour la récupération des différents messages d'erreur
@@ -36,32 +40,34 @@ btnSubmit.addEventListener("click", (event) => {
 // Vérification format nom d'utilisateur
 inputUsername.onkeyup = function () {
   if (inputUsername.value.length < 3) {
-    erreurUsername.textContent = "Nom d'utilisateur invalide (minimum 3 caractères)"
+    erreurUsername.textContent =
+      "Nom d'utilisateur invalide (minimum 3 caractères)";
   } else {
-    erreurUsername.textContent = ""
-  }
-  verificationFormulaire();
-}
-
-// Vérification format Email
-inputEmail.onkeyup = function () {
-  if (inputEmail.value.match(validEmail)) {
-    erreurEmail.textContent = ""
-  } else {
-    erreurEmail.textContent = "Email invalide (ex: nom@domaine.com)"
+    erreurUsername.textContent = "";
   }
   verificationFormulaire();
 };
 
-// Vérification correspondance mot de passe 
-inputVerifMdp.onkeyup = function () {
-  if (inputMdp.value === inputVerifMdp.value) {
-    erreurMdpVerif.textContent = ""
+// Vérification format Email
+inputEmail.onkeyup = function () {
+  if (inputEmail.value.match(validEmail)) {
+    erreurEmail.textContent = "";
   } else {
-    erreurMdpVerif.textContent = "Mot de passe invalide ( les deux mot de passe doivent être identiques)"
+    erreurEmail.textContent = "Email invalide (ex: nom@domaine.com)";
   }
   verificationFormulaire();
-}
+};
+
+// Vérification correspondance mot de passe
+inputVerifMdp.onkeyup = function () {
+  if (inputMdp.value === inputVerifMdp.value) {
+    erreurMdpVerif.textContent = "";
+  } else {
+    erreurMdpVerif.textContent =
+      "Mot de passe invalide ( les deux mot de passe doivent être identiques)";
+  }
+  verificationFormulaire();
+};
 
 /********************************************* */
 
@@ -79,18 +85,24 @@ inputMdp.onkeyup = function () {
     "bg-success"
   );
 
-  if(inputMdp.value.length <= 6) {
+  if (inputMdp.value.length <= 6) {
     force = 1;
-  } 
+  }
 
-  if (inputMdp.value.length > 6 && (inputMdp.value.match(special) || inputMdp.value.match(chiffreValide))) {
+  if (
+    inputMdp.value.length > 6 &&
+    (inputMdp.value.match(special) || inputMdp.value.match(chiffreValide))
+  ) {
     force = 2;
   }
 
-  if (inputMdp.value.length > 9 && inputMdp.value.match(special) && inputMdp.value.match(chiffreValide)) {
+  if (
+    inputMdp.value.length > 9 &&
+    inputMdp.value.match(special) &&
+    inputMdp.value.match(chiffreValide)
+  ) {
     force = 3;
   }
-
 
   switch (force) {
     case 1:
@@ -108,7 +120,12 @@ inputMdp.onkeyup = function () {
   }
 
   // Gestion de l'affichage du message d'aide du mot de passe
-  if (inputMdp.value.length >= 6 && inputMdp.value.match(special) && inputMdp.value.match(chiffreValide) && inputMdp.value.match(lettre)) {
+  if (
+    inputMdp.value.length >= 6 &&
+    inputMdp.value.match(special) &&
+    inputMdp.value.match(chiffreValide) &&
+    inputMdp.value.match(lettre)
+  ) {
     infoMdp.classList.add("d-none");
   } else {
     infoMdp.classList.remove("d-none");
@@ -117,11 +134,26 @@ inputMdp.onkeyup = function () {
   verificationFormulaire();
 };
 
+// Bouton afficher / masquer mot de passe
+function afficheMdp() {
+  if (imageOeil.src.includes("oeil-ouvert.svg")) {
+    imageOeil.src = "/img/oeil-ferme.svg";
+    inputMdp.type = "password";
+  } else {
+    imageOeil.src = "/img/oeil-ouvert.svg";
+    inputMdp.type = "texte";
+  }
+}
+
 // Fonction de vérification du formulaire global pour activer/desactiver le bouton submit
 function verificationFormulaire() {
   let usernameOk = inputUsername.value.length >= 3;
   let emailOk = inputEmail.value.match(validEmail);
-  let mdpOk = inputMdp.value.length >= 6 && inputMdp.value.match(special) && inputMdp.value.match(chiffreValide) && inputMdp.value.match(lettre);
+  let mdpOk =
+    inputMdp.value.length >= 6 &&
+    inputMdp.value.match(special) &&
+    inputMdp.value.match(chiffreValide) &&
+    inputMdp.value.match(lettre);
   let mdpVerifOk = inputMdp.value === inputVerifMdp.value;
 
   if (usernameOk && emailOk && mdpOk && mdpVerifOk) {
