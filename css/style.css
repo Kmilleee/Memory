@@ -1,13 +1,10 @@
 @font-face {
   font-family: "Questrial";
-  src: url(/fonts/Questrial-Regular.ttf);
+  src: url(../fonts/Questrial-Regular.ttf);
 }
 
 body {
   background-color: #111111;
-}
-
-* {
   font-family: "Questrial";
 }
 
