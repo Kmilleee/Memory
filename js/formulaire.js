@@ -33,6 +33,25 @@ let infoMdp = document.getElementById("info-mdp");
 let btnSubmit = document.getElementById("submit-btn");
 btnSubmit.addEventListener("click", (event) => {
   event.preventDefault();
+
+  // Stockage des données dans le localStorage
+  const nouveauUtilisateur = {
+    username: inputUsername.value,
+    email: inputEmail.value,
+    password: inputMdp.value,
+  };
+
+  //Essaye de récupérer les utilisateurs existants s'il n'y en a pas crée un tableau vide
+  let utilisateurs = JSON.parse(localStorage.getItem("utilisateurs")) || [];
+
+  utilisateurs.push(nouveauUtilisateur);
+
+  // Sauvegarde le tableau dans le localStorage en le convertissant en chaîne JSON car le localStorage ne peut stocker que des chaînes de caractères
+  localStorage.setItem("utilisateurs", JSON.stringify(utilisateurs));
+
+  alert("Inscription réussie !");
+
+  window.location.href = "connexion.html";
 });
 
 /***************** VERIFICATION DES CHAMPS ***********************/
