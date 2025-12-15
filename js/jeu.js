@@ -98,10 +98,15 @@ function verifierPaire() {
 }
 
 function relancerPartie(event) {
-  if (event.code === "Space") {
-    monModal.hide();
+  if ( event && event.code !== "Space") {
+    return;
+  }
+
+  if (event) {
     // Désactive le scroll de page avec espace
     event.preventDefault();
+  }
+    monModal.hide();
     // Reset toutes les variables / constantes à 0
     cartesRetournees.length = 0;
     bloqueJeu = false;
@@ -118,10 +123,8 @@ function relancerPartie(event) {
     setTimeout(() => {
       melangerCartes();
     }, 800);
-  } else {
-    return;
   }
-}
+
 
 melangerCartes();
 
