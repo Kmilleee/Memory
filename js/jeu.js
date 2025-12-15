@@ -2,18 +2,18 @@ const cards = document.querySelectorAll(".memory-card");
 document.addEventListener("keydown", relancerPartie);
 
 const mesImages = [
-  { path: "/img/image0.webp", alt: "Image d'un valet" },
-  { path: "/img/image0.webp", alt: "Image d'un valet" },
-  { path: "/img/image1.webp", alt: "Image d'un chevalier" },
-  { path: "/img/image1.webp", alt: "Image d'un chevalier" },
-  { path: "/img/image2.webp", alt: "Image d'une dame" },
-  { path: "/img/image2.webp", alt: "Image d'une dame" },
-  { path: "/img/image3.webp", alt: "Image d'un mage" },
-  { path: "/img/image3.webp", alt: "Image d'un mage" },
-  { path: "/img/image4.webp", alt: "Image d'un joker" },
-  { path: "/img/image4.webp", alt: "Image d'un joker" },
-  { path: "/img/image5.webp", alt: "Image d'un roi" },
-  { path: "/img/image5.webp", alt: "Image d'un roi" },
+  { path: "../img/image0.webp", alt: "Image d'un valet" },
+  { path: "../img/image0.webp", alt: "Image d'un valet" },
+  { path: "../img/image1.webp", alt: "Image d'un chevalier" },
+  { path: "../img/image1.webp", alt: "Image d'un chevalier" },
+  { path: "../img/image2.webp", alt: "Image d'une dame" },
+  { path: "../img/image2.webp", alt: "Image d'une dame" },
+  { path: "../img/image3.webp", alt: "Image d'un mage" },
+  { path: "../img/image3.webp", alt: "Image d'un mage" },
+  { path: "../img/image4.webp", alt: "Image d'un joker" },
+  { path: "../img/image4.webp", alt: "Image d'un joker" },
+  { path: "../img/image5.webp", alt: "Image d'un roi" },
+  { path: "../img/image5.webp", alt: "Image d'un roi" },
 ];
 
 const cartesRetournees = [];
