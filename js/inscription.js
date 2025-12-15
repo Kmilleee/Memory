@@ -52,6 +52,7 @@ btnSubmit.addEventListener("click", (event) => {
   alert("Inscription réussie !");
 
   window.location.href = "connexion.html";
+
 });
 
 /***************** VERIFICATION DES CHAMPS ***********************/
